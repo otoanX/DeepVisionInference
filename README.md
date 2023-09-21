@@ -24,3 +24,6 @@ flaskのウェブ上から下記を設定する
 Flaskの初期画面は下記を参考にする
 > Flaskを使用し、外部ファイルを実行する  
 > https://qiita.com/xxPowderxx/items/6740562e4be87af40e33
+
+## 実行の方法
+root.pyを実行して指定されたURLにアクセスする
