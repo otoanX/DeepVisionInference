@@ -22,5 +22,5 @@ flaskのウェブ上から下記を設定する
 実行ボタンを押したら実行される
 ```
 Flaskの初期画面は下記を参考にする
-> Flaskを使用し、外部ファイルを実行する
+> Flaskを使用し、外部ファイルを実行する  
 > https://qiita.com/xxPowderxx/items/6740562e4be87af40e33
