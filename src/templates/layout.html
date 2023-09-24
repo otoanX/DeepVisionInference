@@ -10,7 +10,34 @@
   <div class="member">
     <img src="/static/img/logo.jpg" alt="img1">
     <h2>Deep Vision Inference</h2>
+    
     <form method="GET" action="/inference">
+      画像はどのように取得しますか？<br>
+      <label><input type="radio" name="getimg" value="1" checked>ファイルを選択</label><input type="file" name="imgpath"><br>
+      <label><input type="radio" name="getimg" value="2">フォルダを監視する</label> <input type="file" name="imgdir" webkitdirectory><br>
+      <label><input type="radio" name="getimg" value="3">IPカメラを利用する</label><input type="url" name="ipcamerapath"><br>
+      <label><input type="radio" name="getimg" value="4">USB/GigEカメラを利用する カメラID：</label><input type="number" name="cameraid" value="0"><br>
+      <img src="{{ url_for('video_feed') }}" alt="カメラ未接続"><br>
+      <!-- ボタンを増やす　https://noveblo.com/javascript-create-input/ -->
+      
+      <br>画像の前処理は使用しますか？<br>
+      <label><input type="checkbox" name="pre" value="1">明るさ補正</label><br>
+      <label><input type="checkbox" name="pre" value="2">2値化</label><br>
+      <label><input type="checkbox" name="pre" value="3">トリミング</label><br>
+      <label><input type="checkbox" name="pre" value="4">リサイズ</label><br>
+      <label><input type="checkbox" name="pre" value="5">正方形化</label><br>
+      
+      <br>どの画像分類モデルを使用しますか？<br>
+      <label><input type="radio" name="model" value="1" checked>kerasモデル</label><br>
+      <label><input type="radio" name="model" value="2">PVIモデル</label><br>
+      <label><input type="radio" name="model" value="3">その他API</label><br>
+      
+      <br>分類後は何をしますか？<br>
+      <label><input type="checkbox" name="after" value="1">PLCに伝文</label><br>
+      <label><input type="checkbox" name="after" value="2">タイムアウト</label><br>
+      <label><input type="checkbox" name="after" value="3">前処理に戻る</label><br>
+      
+      <br>実行<br>
       <button type="submit">Start Deep-Vision</button>
     </form>
   </div>
