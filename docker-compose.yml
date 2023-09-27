@@ -1,0 +1,11 @@
+version: '3'
+services:
+  flask:
+    build: .
+    command: python3 root.py
+    container_name: 'flask'
+    tty: true
+    volumes:
+      - ./src:/root/src
+    ports:
+      - 5000:5000

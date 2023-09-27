@@ -26,4 +26,10 @@ Flaskの初期画面は下記を参考にする
 > https://qiita.com/xxPowderxx/items/6740562e4be87af40e33
 
 ## 実行の方法
-root.pyを実行して指定されたURLにアクセスする
+次の３つのコマンドでテストプログラムが実行できます。
+
+```cmd:コマンドプロンプト
+$ docker-compose build
+$ docker-compose up -d
+$ docker exec -it python3 python test.py
+```

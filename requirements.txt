@@ -1,0 +1,4 @@
+flask
+watchdog
+opencv-python
+opencv-contrib-python
