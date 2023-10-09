@@ -46,10 +46,14 @@ def get_latest_image():
         return None
 
 
-def changeBase64(image_path):    
-    with open(image_path, 'rb') as f:
-        image_base64 = base64.b64encode(f.read())
-    return str(image_base64, 'utf-8')
+def srcBase64(image_path):
+    if image_path.endswith(('.jpg', '.png', '.gif')):
+        image_ext = os.path.splitext(image_path)[1][1:]
+        with open(image_path, 'rb') as f:
+            image_base64 = str(base64.b64encode(f.read()), 'utf-8')
+        return "data:image/" + image_ext + ";base64," + image_base64
+    else:
+        return None
 
 
 @app.route('/')
@@ -57,7 +61,7 @@ def display_latest_image():
     latest_image = get_latest_image()
     if latest_image:
         image_path = os.path.join(image_directory, latest_image)
-        return render_template('index.html', image_path="data:image/" + os.path.splitext(image_path)[1][1:] + ";base64," + changeBase64(image_path))
+        return render_template('index.html', image_path=srcBase64(image_path))
     else:
         return "ディレクトリ内に画像ファイルが見つかりません。"
 
@@ -68,7 +72,7 @@ def get_latest_image_json():
     if latest_image:
         image_path = os.path.join(image_directory, latest_image)
         # print(image_path)
-        return jsonify({"image_path": "data:image/" + os.path.splitext(image_path)[1][1:] + ";base64," + changeBase64(image_path)})
+        return jsonify({"image_path": srcBase64(image_path)})
     else:
         return jsonify({"error": "ディレクトリ内に画像ファイルが見つかりません。"})
 
