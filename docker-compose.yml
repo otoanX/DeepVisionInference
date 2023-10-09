@@ -10,13 +10,14 @@ services:
       - ./src/flask:/root/src
     ports:
       - "8000:5000"
-      
+
   sreamlit:
     build: ./src/streamlit
-    command: python3 app.py
+    command: streamlit run app.py
+    # command: python3 app.py
     container_name: streamlit
     tty: true
     volumes:
       - ./src/streamlit:/root/src
     ports:
-      - "8001:5000"
+      - "8501:8501"
