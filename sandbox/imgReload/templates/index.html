@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>最新の画像</title>
+</head>
+<body>
+    <h1>最新の画像</h1>
+    <img id="latestImage" src="{{ image_path }}" alt="最新の画像">
+    
+    <script>
+        function updateImage() {
+            fetch('/latest_image')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.image_path) {
+                        // document.getElementById('latestImage').src = data.image_path + "?" + Date.now();
+                        var element = document.getElementById('latestImage')
+                        // element.setAttribute('src', data.image_path + "?" + Date.now());
+                        element.setAttribute('src', data.image_path);
+                    } else {
+                        console.error(data.error);
+                    }
+                })
+                .catch(error => console.error('エラー:', error));
+        }
+
+        // 1秒ごとに最新の画像を更新
+        setInterval(updateImage, 1000);
+    </script>
+</body>
+</html>
