@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/static/css/index.css">
+</head>
+
+<body>
+<h1>Deep Vision Infrence</h1>
+<h2>画像検査のフロントエンドソフト</h2>
+
+【Python】Flask入門　Jinjaでリストや辞書からHTMLテーブルを動的に作成する<br>
+https://shigeblog221.com/python-flask-td/<br>
+<table>
+    {% for 要素 in 変数名 %}
+    <tr>
+    <td>{{ 要素 }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<table border="1">
+    <tr>
+      <th>No</th>
+      <th>カメラ画像</th>
+      <th>判定</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td><img src="./static/img/tw00014-07.jpg"></td>
+      <td>OK</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><img src="./static/img/tw00014-07.jpg"></td>
+      <td>NG</td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

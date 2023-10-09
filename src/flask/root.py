@@ -3,7 +3,7 @@ import threading
 import webbrowser
 # ↓　Flaskを通し実行したいファイルをインポート
 # import inference
-from imagepredictlib import Camera, Cameras
+from imagepredictlib import Cameras
 
 
 app = Flask(__name__)
@@ -52,4 +52,4 @@ if __name__ == "__main__":
     # コードを変更するたびにmainが再実行されるため、その度にブラウザーが追加で開いてしまう
     threading.Timer(1.0, lambda: webbrowser.open('http://localhost:5000') ).start()
     # app.run(debug=True)
-    app.run(host="0.0.0.0", port=5000, debug=False)    # コード変更ごとに追加ブラウザが開くのを防ぐため
+    app.run(host="0.0.0.0", port=5000, debug=False)    # コード変更ごとに追加ブラウザが開くのを防ぐ
