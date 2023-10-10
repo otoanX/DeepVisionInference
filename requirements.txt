@@ -2,3 +2,7 @@ flask
 watchdog
 opencv-python
 opencv-contrib-python
+keyboard
+torch
+torchvision
+torchaudio
