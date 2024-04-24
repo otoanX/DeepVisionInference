@@ -68,11 +68,9 @@ def api():
     print(f"画像を取得したので処理します")
     # ここに判定処理を記述
     outputs = model(preprocess_image(image))
-    _, score = torch.max(outputs, 1)
-    # return print(f"score: {score.item()}")
+    _, label = torch.max(outputs, 1)
     answer = json.dumps({
-        # "score": score,
-        "item": score.item()
+        "label": label.item()
     })
     return answer
 

@@ -16,7 +16,9 @@ test_dataset = torchvision.datasets.MNIST(root='./data', train=False, download=T
 test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=1, shuffle=True)
 
 # データローダーから1つのサンプルを取得
-sample_image, _ = next(iter(test_loader))
+sample_image, label = next(iter(test_loader))
+sample_image, label = next(iter(test_loader))
+print(f"tm_send.py label: {label.item()}")
 
 # PIL画像に変換
 pil_image = transforms.ToPILImage()(sample_image.squeeze())
